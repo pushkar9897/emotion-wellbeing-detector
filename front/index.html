@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Emotion & Wellbeing Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--Landing Page-->
+    <section class="landing-page">
+        <div class="wrapper">
+            <div class="flex-content">
+                <h1 class="vacation-heading">🧠 MindWell</h1>
+                <p style="font-size: 1.5em; margin: 20px 0; color: white; font-weight: 300;">Discover Your Emotional Wellbeing</p>
+                <p style="font-size: 1.1em; margin: 20px 0; color: rgba(255,255,255,0.9);">AI-Powered Emotional Intelligence Assessment</p>
+                <a href="#assessments" class="btn">Begin Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!--Header Section-->
+    <header class="quiz-header" id="quiz-header">
+        <h1 class="heading">🌿 MindWell Assessments</h1>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#">Home</a>
+        <a href="#assessments">Assessments</a>
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section" id="about" style="padding: 80px 20px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1 class="quiz-heading">🎯 Understanding Emotional Wellbeing</h1>
+            <p class="quiz-text" style="font-size: 1.2em; line-height: 1.8; text-align: center; max-width: 900px; margin: 30px auto;">
+                MindWell uses advanced AI technology to analyze your emotional patterns and provide personalized insights 
+                into your psychological wellbeing. Our assessments are designed by mental health professionals to help you 
+                understand your emotional state, identify areas of strength, and discover opportunities for growth.
+            </p>
+            <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🧘‍♀️</div>
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Self-Awareness</h3>
+                    <p>Gain deep insights into your emotional patterns and mental state through scientifically-backed assessments</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🤖</div>
+                    <h3 style="color: #667eea; margin-bottom: 15px;">AI-Powered Analysis</h3>
+                    <p>Advanced artificial intelligence provides nuanced, personalized feedback based on your unique responses</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">📈</div>
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Personal Growth</h3>
+                    <p>Receive actionable recommendations tailored to your emotional profile for meaningful improvement</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🔒</div>
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Private & Safe</h3>
+                    <p>Your responses are confidential and used solely to provide you with personalized insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessments Section -->
+    <section class="quiz-packages-section" id="assessments">
+        <h1 class="quiz-heading">Choose Your Wellbeing Assessment</h1>
+        <p class="quiz-text" style="max-width: 900px; margin: 0 auto 50px; font-size: 1.1em;">
+            Select an assessment area to explore your emotional wellbeing. Each assessment provides AI-generated insights 
+            tailored to your unique responses. Remember: there are no right or wrong answers—only honest reflections of 
+            your current state.
+        </p>
+        
+        <div class="package-wrapper">
+            <div class="package-card">
+                <div style="font-size: 5em; margin: 20px 0;">😰</div>
+                <p class="card-heading">Stress & Anxiety</p>
+                <p class="card-text">Evaluate your stress levels, anxiety patterns, and coping mechanisms. Discover how well you're managing daily pressures and identify areas for improvement.</p>
+                <p class="card-heading" style="color: #667eea; margin: 20px 0;">5 Questions • 3-5 min</p>
+                <button class="btn" onclick="startAssessment('stress_anxiety')">Start Assessment</button>
+            </div>
+            
+            <div class="package-card">
+                <div style="font-size: 5em; margin: 20px 0;">😊</div>
+                <p class="card-heading">Mood & Emotions</p>
+                <p class="card-text">Understand your emotional landscape, mood patterns, and overall emotional wellbeing. Gain insights into your daily emotional experiences and resilience.</p>
+                <p class="card-heading" style="color: #667eea; margin: 20px 0;">5 Questions • 3-5 min</p>
+                <button class="btn" onclick="startAssessment('mood_emotional')">Start Assessment</button>
+            </div>
+            
+            <div class="package-card">
+                <div style="font-size: 5em; margin: 20px 0;">💪</div>
+                <p class="card-heading">Self-Confidence</p>
+                <p class="card-text">Assess your self-esteem, confidence levels, and self-perception. Discover your strengths and areas where building confidence could enhance your life.</p>
+                <p class="card-heading" style="color: #667eea; margin: 20px 0;">5 Questions • 3-5 min</p>
+                <button class="btn" onclick="startAssessment('confidence_esteem')">Start Assessment</button>
+            </div>
+            
+            <div class="package-card">
+                <div style="font-size: 5em; margin: 20px 0;">⚖️</div>
+                <p class="card-heading">Work-Life Balance</p>
+                <p class="card-text">Examine your work-life balance, burnout indicators, and overall life satisfaction. Learn how to create more harmony between your responsibilities and wellbeing.</p>
+                <p class="card-heading" style="color: #667eea; margin: 20px 0;">5 Questions • 3-5 min</p>
+                <button class="btn" onclick="startAssessment('worklife_burnout')">Start Assessment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="notes-section" id="resources" style="background: #f8f9fa;">
+        <h1 class="quiz-heading">Mental Health Resources</h1>
+        <p class="quiz-text" style="max-width: 800px; margin: 0 auto 40px;">
+            Explore helpful resources to support your emotional wellbeing journey. Knowledge and understanding are 
+            powerful tools for mental health.
+        </p>
+        <div class="notes-div">
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">🧘</div>
+                <p style="margin-top: 10px; font-weight: bold;">Mindfulness & Meditation</p>
+            </div>
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">💭</div>
+                <p style="margin-top: 10px; font-weight: bold;">Stress Management</p>
+            </div>
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">❤️</div>
+                <p style="margin-top: 10px; font-weight: bold;">Self-Care Practices</p>
+            </div>
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">🗣️</div>
+                <p style="margin-top: 10px; font-weight: bold;">Communication Skills</p>
+            </div>
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">🌱</div>
+                <p style="margin-top: 10px; font-weight: bold;">Personal Growth</p>
+            </div>
+            <div class="notes-wrapper">
+                <div style="font-size: 4em; padding: 40px;">🤝</div>
+                <p style="margin-top: 10px; font-weight: bold;">Support Networks</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section style="padding: 60px 20px; background: #fff3cd; text-align: center;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h3 style="color: #856404; margin-bottom: 15px;">⚠️ Important Notice</h3>
+            <p style="color: #856404; line-height: 1.6;">
+                MindWell assessments are designed for self-reflection and personal insight. They are NOT a substitute 
+                for professional mental health care. If you're experiencing severe emotional distress, persistent mental 
+                health concerns, or thoughts of self-harm, please seek help from a qualified mental health professional 
+                immediately. You can call the National Crisis Hotline at 988 (US) or contact your local emergency services.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <small>© 2024 MindWell - Emotion & Wellbeing Detector. All Rights Reserved.</small>
+        <small>Developed with care for mental health awareness</small>
+    </footer>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>

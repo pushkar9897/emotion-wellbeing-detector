@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Emotional Wellbeing Analysis - MindWell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .results-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .header h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        .assessment-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .assessment-info h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .assessment-info p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .analysis-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .analysis-section h3 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .analysis-content {
+            line-height: 2;
+            color: #333;
+            white-space: pre-wrap;
+            font-size: 1.1em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading-spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #667eea;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .loading-subtext {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .error-message h3 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            color: #856404;
+        }
+
+        .disclaimer strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .results-container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .assessment-info h2 {
+                font-size: 1.5em;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <div class="header">
+            <h1>🧠 Your Emotional Wellbeing Analysis</h1>
+            <p class="subtitle">Personalized AI-Generated Insights</p>
+        </div>
+
+        <div class="assessment-info">
+            <h2 id="assessment-type">Assessment Completed</h2>
+            <p id="completion-message">Thank you for completing this assessment</p>
+        </div>
+
+        <div class="analysis-section">
+            <h3>📊 Your Comprehensive Analysis</h3>
+            <div id="analysis-content" class="analysis-content">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text">Analyzing your emotional patterns...</p>
+                    <p class="loading-subtext">Our AI is generating your personalized insights</p>
+                    <p class="loading-subtext" style="margin-top: 10px;">This may take a few moments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <strong>⚠️ Important Reminder:</strong>
+            This analysis is for self-reflection and personal insight only. It is not a diagnostic tool 
+            and should not replace professional mental health care. If you're experiencing distress, 
+            please consult a qualified mental health professional.
+        </div>
+
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">Take Another Assessment</a>
+            <a href="index.html#assessments" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Get data from localStorage
+        const emotionAnalysis = localStorage.getItem('emotionAnalysis');
+        const assessmentType = localStorage.getItem('assessmentType');
+        const totalResponses = localStorage.getItem('totalResponses');
+
+        // Format assessment type for display
+        function formatAssessmentType(type) {
+            const types = {
+                'stress_anxiety': 'Stress & Anxiety Assessment',
+                'mood_emotional': 'Mood & Emotional State Assessment',
+                'confidence_esteem': 'Self-Confidence & Self-Esteem Assessment',
+                'worklife_burnout': 'Work-Life Balance & Burnout Assessment'
+            };
+            return types[type] || type;
+        }
+
+        // Display assessment info
+        if (assessmentType) {
+            document.getElementById('assessment-type').textContent = formatAssessmentType(assessmentType);
+            document.getElementById('completion-message').textContent = 
+                `You completed ${totalResponses || 5} questions`;
+        }
+
+        // Display analysis with delay for better UX
+        setTimeout(() => {
+            const analysisContent = document.getElementById('analysis-content');
+            
+            if (emotionAnalysis) {
+                analysisContent.innerHTML = `<div class="analysis-content">${emotionAnalysis}</div>`;
+            } else {
+                analysisContent.innerHTML = `
+                    <div class="error-message">
+                        <h3>⚠️ Analysis Unavailable</h3>
+                        <p>We couldn't load your emotional analysis. This might be due to a connection issue.</p>
+                        <p style="margin-top: 15px;">Please try taking the assessment again, or contact support if the problem persists.</p>
+                    </div>
+                `;
+            }
+        }, 1500);
+
+        // Optional: Clear localStorage after some time
+        setTimeout(() => {
+            // Uncomment if you want to auto-clear after viewing
+            // localStorage.removeItem('emotionAnalysis');
+            // localStorage.removeItem('assessmentType');
+            // localStorage.removeItem('totalResponses');
+        }, 300000); // 5 minutes
+    </script>
+</body>
+</html>

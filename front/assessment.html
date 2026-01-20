@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell Assessment</title>
+    <link rel="stylesheet" href="assessment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="assessment-container">
+        <div class="assessment-header">
+            <h1 id="assessment-title">Loading Assessment...</h1>
+            <p id="assessment-description">Please wait while we prepare your questions</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="question-info">
+            <span id="question-counter">Question 1 of 5</span>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question-text" id="question-text">Loading question...</h2>
+            <div class="options-container" id="options-container">
+                <!-- Options will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="btn-nav btn-back" id="back-button" onclick="previousQuestion()" disabled>
+                ← Previous
+            </button>
+            <button class="btn-nav btn-next" id="next-button" onclick="nextQuestion()" disabled>
+                Next →
+            </button>
+        </div>
+
+        <button class="btn-submit" id="submit-button" onclick="submitAssessment()" style="display: none;">
+            Complete Assessment 🧠
+        </button>
+    </div>
+
+    <script src="assessment.js"></script>
+</body>
+</html>
